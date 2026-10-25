@@ -62,6 +62,6 @@ export interface Profile {
 export interface AppState {
   version: 1; habits: Habit[]; logs: HabitLog[]; sessions: FocusSession[]
   goals: Goal[]; notes: JournalNote[]; categories: string[]
-  settings: Settings; timer: TimerPersist; demo: boolean; gamification: Gamification
+  settings: Settings; timer: TimerPersist; demo?: boolean; gamification: Gamification
   profile: Profile; moods: { date: string; mood: string }[]
 }

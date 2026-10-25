@@ -48,8 +48,8 @@ export default function SettingsPage() {
       const v = validateImported(parsed)
       if (!v.ok || !v.state) { setImportErr(`Import failed: ${v.error}`); return }
       if (!confirm('Restore this backup? It REPLACES all current data on this device.')) return
-      replaceState(v.state); setToast('Backup restored successfully ✅')
-    } catch { setImportErr('Could not read that file. Please try again.') }
+      await replaceState(v.state, v.demoMarker); setToast('Backup restored successfully ✅')
+    } catch (error) { setImportErr(error instanceof Error ? `Could not restore the backup safely: ${error.message}` : 'Could not read that file. Please try again.') }
   }
 
   return (
@@ -115,7 +115,7 @@ export default function SettingsPage() {
 
       <section className="card"><h2>🧪 Demo &amp; danger zone</h2>
         <div className="row">
-          <button className="btn" onClick={() => { loadDemo(); setToast('Demo data loaded (last 35 days) — clearly labelled, reset anytime.') }}>Load demo data</button>
+          <button className="btn" onClick={async () => { await loadDemo(); setToast('Demo data loaded (last 35 days) — clearly labelled, reset anytime.') }}>Load demo data</button>
           <button className="btn danger" onClick={() => setConfirmReset(true)}>🗑️ Reset all data</button>
         </div>
         <p className="muted small">Demo data is optional and only fills the last 35 days so you can explore reports. Reset restores the 6 editable sample habits with an empty history.</p>
