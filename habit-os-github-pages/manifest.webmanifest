@@ -1,0 +1,18 @@
+{
+  "name": "HABIT OS — Personal Progress System",
+  "short_name": "HABIT OS",
+  "description": "Free habit tracker with focus timer, streaks, weekly & monthly reports. Data saved on your device.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#07090c",
+  "theme_color": "#07090c",
+  "lang": "en",
+  "categories": ["productivity", "health", "lifestyle"],
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
